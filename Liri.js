@@ -2,13 +2,17 @@
     
 const dotenv = require("dotenv").config();
 var Spotify = require('node-spotify-api');
-const Twitter = require('Twitter');
 var keys = require("./keys.js");
 var request = require('request');
 
-var client = new Twitter(keys.twitterKeys);
 const {appendFile,readFile} = require('fs');
 const [, ,command,search] = process.argv;
+
+//Spotify API keys 
+// I don't know how to get the API key for the sportify to work
+SPOTIFY_ID=your-spotify-id
+SPOTIFY_SECRET=your-spotify-secret
+
 
 const doThis = _ => {
     readFile('random.txt', 'utf8', (e, data) => {
@@ -22,11 +26,10 @@ const doThis = _ => {
     })
 }
 
-
 switch (command) {
-	case 'my-tweets':
-	twitter(userSearch);
-	break;
+    case 'concert-this':
+    concert();
+    break;
 
 	case 'spotify-this-song':
 	spotify(userSearch);
@@ -41,7 +44,10 @@ switch (command) {
 	break;
 };
 
+// need to figure it out how to create a function for the concert (don't know how to do it)
+// function for the sportify (not sure where to start)
 
+// movie function
 const axios = require('axios');
 const [, , movie] = process.argv
 axios.get(`htpp://www.omdbapi.com/?t=${movie}&apikey=trilogy`)
